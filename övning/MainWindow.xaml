@@ -1,0 +1,54 @@
+﻿<Window x:Class="övning.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:övning"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="800"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Admin</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="800"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="myButton" Content="Generate html code" HorizontalAlignment="Left" Margin="120,12,0,0" VerticalAlignment="Top" Click="myButton_Click" Grid.Column="1" Height="20" Width="118"/>
+                    <Button x:Name="myClearButton" Content="Clear" HorizontalAlignment="Left" Margin="270,12,0,0" VerticalAlignment="Top" Click="myClearButton_Click" Grid.Column="1" Height="20" Width="87"/>
+
+                    <Button x:Name="saveButton" Content="Save as html" HorizontalAlignment="Left" Margin="512,87,0,0" VerticalAlignment="Top"  Click="saveButton_Click"  Grid.Column="1" Height="20" Width="82"/>
+                    <Label x:Name="myLabel" Content="Ange filnamn" HorizontalAlignment="Left" Margin="459,12,0,0" VerticalAlignment="Top" Width="135" Grid.Column="1" Height="26"/>
+                    <TextBox x:Name="myText" TextWrapping="Wrap" Margin="120,38,443,33" Grid.Column="1"/>
+                    <TextBox x:Name="newFilename" TextWrapping="Wrap" Margin="459,38,130,419" Grid.Column="1" />
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Managers">
+                <Grid>
+                    <TextBox x:Name="kurserInput" AcceptsReturn="True" HorizontalAlignment="Left" Margin="28,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="230"/>
+                    <Label Content="Ange kurser:" HorizontalAlignment="Left" Margin="28,41,0,0" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="test" HorizontalAlignment="Left" AcceptsReturn="True"  Margin="228,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="230"/>
+                    <Label x:Name="message" Content="Ange meddelanden:" HorizontalAlignment="Left" Margin="228,41,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="addKurs" Content="Spara kurser" HorizontalAlignment="Left" Margin="28,306,0,0" VerticalAlignment="Top" Click="addKurs_Click"/>
+                    <Button x:Name="addMeddelande" Content="Spara meddelanden" HorizontalAlignment="Left" Margin="228,306,0,0" VerticalAlignment="Top"/>
+                    <StackPanel Margin="419,71,276,205" >                        
+                        <RadioButton Name="rb1" Content="Red" Checked="rb1_Checked"></RadioButton>
+                        <RadioButton Name="rb2" Content="Blue" Checked="rb2_Checked"></RadioButton>
+                        <RadioButton Name="rb3" Content="Yellow" Checked="rb3_Checked"></RadioButton>
+                    </StackPanel>                    
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>
