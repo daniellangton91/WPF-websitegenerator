@@ -36,10 +36,10 @@
                 <Grid>
                     <TextBox x:Name="kurserInput" AcceptsReturn="True" HorizontalAlignment="Left" Margin="28,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="230"/>
                     <Label Content="Ange kurser:" HorizontalAlignment="Left" Margin="28,41,0,0" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="test" HorizontalAlignment="Left" AcceptsReturn="True"  Margin="228,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="230"/>
+                    <TextBox x:Name="meddelandenInput" HorizontalAlignment="Left" AcceptsReturn="True"  Margin="228,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="230"/>
                     <Label x:Name="message" Content="Ange meddelanden:" HorizontalAlignment="Left" Margin="228,41,0,0" VerticalAlignment="Top" Width="120"/>
                     <Button x:Name="addKurs" Content="Spara kurser" HorizontalAlignment="Left" Margin="28,306,0,0" VerticalAlignment="Top" Click="addKurs_Click"/>
-                    <Button x:Name="addMeddelande" Content="Spara meddelanden" HorizontalAlignment="Left" Margin="228,306,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="addMeddelande" Content="Spara meddelanden" HorizontalAlignment="Left" Margin="228,306,0,0" VerticalAlignment="Top" Click="addMeddelande_Click"/>
                     <StackPanel Margin="419,71,276,205" >                        
                         <RadioButton Name="rb1" Content="Red" Checked="rb1_Checked"></RadioButton>
                         <RadioButton Name="rb2" Content="Blue" Checked="rb2_Checked"></RadioButton>

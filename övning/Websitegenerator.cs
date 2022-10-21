@@ -24,6 +24,7 @@ namespace övning
          * De olika egenskaperna (datat) i varje objekt
          */
         List<string> minaKurser = new List<string>();
+        List<string> minaMeddelanden = new List<string>();
         string[] messagesToClass, techniques;
         string className;
         string kurser = "";
@@ -31,10 +32,11 @@ namespace övning
         /*
          * En konstruktor som tillåter oss att lägga in egen data i objektens egenskaper
          */
-        public WebsiteGenerator(string className, string[] messageToClass, List<string> minaKurser)
+        public WebsiteGenerator(string className, List<string> minaMeddelanden, List<string> minaKurser)
         {
             this.className = className;
-            this.messagesToClass = messageToClass;
+            //this.messagesToClass = messageToClass;
+            this.minaMeddelanden = minaMeddelanden;
             this.minaKurser = minaKurser;
             //this.techniques = techniques;
             this.minaKurser = minaKurser;
@@ -48,7 +50,7 @@ namespace övning
         {
             return "<!DOCTYPE html>\n<html>\n<body>\n<main>\n";
         }
-        string printWelcome(string className, string[] message)
+        string printWelcome(string className, List<string> message)
         {
             string welcome = $"<h1> Välkomna {className}! </h1>";
 
@@ -56,10 +58,10 @@ namespace övning
 
             foreach (string msg in message)
             {
-                welcomeMessage += $"\n<p><b> Meddelande: </b> {msg} </p>\n";
+                welcomeMessage += $"\n<p><b> Meddelande: </b> {msg} </p>";
             }
 
-            return welcome + welcomeMessage;
+            return $"{welcome}{welcomeMessage}\n";
         }
         string printKurser()
         {
@@ -76,7 +78,7 @@ namespace övning
             //Console.WriteLine(printWelcome(this.className, this.messagesToClass));
             //Console.WriteLine(printKurser());
             //Console.WriteLine(printEnd());
-            return printStart() + printWelcome(this.className, this.messagesToClass) + printKurser() + printEnd();
+            return printStart() + printWelcome(this.className, this.minaMeddelanden) + printKurser() + printEnd();
         }
 
         public string getFileName()
@@ -117,7 +119,7 @@ namespace övning
                 using (StreamWriter sw = new StreamWriter(fs))
                 {
                     sw.WriteLine(printStart());
-                    sw.WriteLine(printWelcome(this.className, this.messagesToClass));
+                    sw.WriteLine(printWelcome(this.className, this.minaMeddelanden));
                     sw.WriteLine(printKurser());
                     sw.WriteLine(printEnd());
 
@@ -161,7 +163,7 @@ namespace övning
          * Vi vill lägga in alla del egenskaper som behövs i base-klassen vi ärvde ifrån
          * Och också lägga in en färg (data) i vår nya egenskap
          */
-        public StyledWebsiteGenerator(string className, string color, string[] messageToClass, List<string> minaKurser) : base(className, messageToClass, minaKurser)
+        public StyledWebsiteGenerator(string className, string color, List<string> minaMeddelanden, List<string> minaKurser) : base(className, minaMeddelanden, minaKurser)
         {
             this.color = color;
         }

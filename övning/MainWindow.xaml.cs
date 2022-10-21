@@ -18,13 +18,13 @@ namespace övning
 {
     public partial class MainWindow : Window
     {
-        List<string> meddelanden = new List<string>();
+        static List<string> meddelandenTillKlassen = new List<string>();
         static List<string> kursLista = new List<string>();
         static string[] savedKursArr;
         static string colour;       
         
         
-        StyledWebsiteGenerator website = new StyledWebsiteGenerator("Klass A", colour, new string[] {"Hej"}, kursLista );
+        StyledWebsiteGenerator website = new StyledWebsiteGenerator("Klass A", colour, meddelandenTillKlassen, kursLista );
         public MainWindow()
         {
             InitializeComponent();
@@ -74,6 +74,17 @@ namespace övning
         private void rb3_Checked(object sender, RoutedEventArgs e)
         {
             colour = rb3.Content.ToString();
+        }
+
+        private void addMeddelande_Click(object sender, RoutedEventArgs e)
+        {
+            var lines = meddelandenInput.Text.Split("\r\n");
+            foreach (var line in lines)
+            {
+                meddelandenTillKlassen.Add(line);
+            }
+            meddelandenInput.Clear();
+            MessageBox.Show("Meddelandena sparades!");
         }
     }
 }
